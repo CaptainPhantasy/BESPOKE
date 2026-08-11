@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+heartbeat.log
+CRM/.staging/*
+!CRM/.staging/.gitkeep
