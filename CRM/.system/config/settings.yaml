@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "onboarding_complete": false,
+  "user_name": "",
+  "timezone": "America/Indiana/Indianapolis",
+  "hours": {
+    "daily_cleanup": "07:00",
+    "nightly_development_start": "22:00",
+    "nightly_development_end": "01:00"
+  },
+  "verification": {
+    "duplicate_email": true,
+    "duplicate_phone": true,
+    "high_value_threshold": 25000
+  },
+  "integrations": {
+    "provider": "zapier_mcp",
+    "catalog_file": ".system/config/integrations.yaml"
+  },
+  "pipeline": {
+    "transitions": {
+      "New": [
+        "Qualified",
+        "Lost"
+      ],
+      "Qualified": [
+        "Proposal",
+        "Lost"
+      ],
+      "Proposal": [
+        "Negotiation",
+        "Won",
+        "Lost"
+      ],
+      "Negotiation": [
+        "Won",
+        "Lost"
+      ],
+      "Won": [],
+      "Lost": []
+    }
+  }
+}

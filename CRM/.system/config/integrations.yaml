@@ -1,0 +1,56 @@
+{
+  "provider": "zapier_mcp",
+  "enabled_apps": [
+    "Gmail",
+    "Google Calendar",
+    "Google Tasks",
+    "SignalWire",
+    "Stripe",
+    "Google Drive",
+    "Google Docs",
+    "Google Sheets",
+    "GitHub",
+    "HubSpot",
+    "Zoom",
+    "Notion",
+    "Google Meet",
+    "LinkedIn",
+    "SMS by Zapier"
+  ],
+  "capability_map": {
+    "email": [
+      "Gmail"
+    ],
+    "calendar": [
+      "Google Calendar",
+      "Google Meet",
+      "Zoom"
+    ],
+    "tasks": [
+      "Google Tasks"
+    ],
+    "sms": [
+      "SignalWire",
+      "SMS by Zapier"
+    ],
+    "payments": [
+      "Stripe"
+    ],
+    "files": [
+      "Google Drive",
+      "Google Docs",
+      "Google Sheets"
+    ],
+    "code": [
+      "GitHub",
+      "Vercel"
+    ],
+    "crm_sync": [
+      "HubSpot"
+    ],
+    "knowledge": [
+      "Notion"
+    ]
+  },
+  "note": "Runtime adapter accepts an injected Zapier executor so credentials never live in CRM files."
+}

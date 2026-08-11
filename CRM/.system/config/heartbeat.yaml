@@ -1,0 +1,20 @@
+{
+  "enabled": true,
+  "interval_minutes": 5,
+  "continuous": [
+    "scan_overdue_tasks",
+    "update_pipeline_snapshot",
+    "light_integrity_check"
+  ],
+  "daily": [
+    "rebuild_indices",
+    "archive_completed_tasks",
+    "full_audit",
+    "generate_daily_brief",
+    "tidy_staging"
+  ],
+  "nightly": [
+    "analyze_usage",
+    "propose_improvements"
+  ]
+}

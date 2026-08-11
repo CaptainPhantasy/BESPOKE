@@ -1,0 +1,99 @@
+{
+  "create_contact": [
+    "contact.preview",
+    "verifier.pre",
+    "contact.dry_run",
+    "verifier.post",
+    "commit"
+  ],
+  "update_contact": [
+    "contact.preview",
+    "verifier.pre",
+    "contact.dry_run",
+    "verifier.post",
+    "commit"
+  ],
+  "merge_contact": [
+    "verifier.hitl",
+    "contact.preview",
+    "verifier.pre",
+    "contact.dry_run",
+    "verifier.post",
+    "commit"
+  ],
+  "create_company": [
+    "company.preview",
+    "verifier.pre",
+    "company.dry_run",
+    "verifier.post",
+    "commit"
+  ],
+  "create_deal": [
+    "deal.preview",
+    "verifier.pre",
+    "deal.dry_run",
+    "verifier.post",
+    "commit"
+  ],
+  "move_deal": [
+    "verifier.hitl_if_needed",
+    "deal.preview",
+    "verifier.pre",
+    "deal.dry_run",
+    "verifier.post",
+    "commit"
+  ],
+  "create_task": [
+    "task.preview",
+    "verifier.pre",
+    "task.dry_run",
+    "verifier.post",
+    "commit"
+  ],
+  "complete_task": [
+    "task.preview",
+    "verifier.pre",
+    "task.dry_run",
+    "verifier.post",
+    "commit"
+  ],
+  "append_activity": [
+    "activity.preview",
+    "verifier.pre",
+    "activity.dry_run",
+    "verifier.post",
+    "commit"
+  ],
+  "send_email": [
+    "integration.send_email"
+  ],
+  "create_event": [
+    "integration.create_event"
+  ],
+  "send_sms": [
+    "integration.send_sms"
+  ],
+  "activate_feature": [
+    "orchestrator.activate_feature"
+  ],
+  "list_contacts": [
+    "contact.preview"
+  ],
+  "update_company": [
+    "company.preview",
+    "verifier.pre",
+    "company.dry_run",
+    "verifier.post",
+    "commit"
+  ],
+  "update_deal": [
+    "deal.preview",
+    "verifier.pre",
+    "deal.dry_run",
+    "verifier.post",
+    "commit"
+  ],
+  "list_overdue_tasks": [
+    "task.preview"
+  ]
+}
