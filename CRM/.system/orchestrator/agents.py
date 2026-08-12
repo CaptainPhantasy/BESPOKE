@@ -36,7 +36,9 @@ def execute(root, params):
         if meta.get("stage") not in {"Won", "Lost"}:
             rows.append(meta)
             total += float(meta.get("value", 0) or 0)
-    out = root / "Reports" / f"pipeline-summary-{store.now()[:10]}.md"
+    report_dir = root / "Reports" / "Internal"
+    report_dir.mkdir(parents=True, exist_ok=True)
+    out = report_dir / f"pipeline-summary-{store.now()[:10]}.md"
     lines = ["# Pipeline Summary", "", f"Open deals: {len(rows)}", f"Open value: ${total:,.2f}", "", "| Deal | Stage | Value |", "|---|---|---:|"]
     lines += [f"| {d.get('name','')} | {d.get('stage','')} | ${float(d.get('value',0) or 0):,.2f} |" for d in rows]
     out.write_text("\\n".join(lines) + "\\n")

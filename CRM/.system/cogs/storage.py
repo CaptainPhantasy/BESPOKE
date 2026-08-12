@@ -41,6 +41,9 @@ class CRMStore:
         self.root = Path(root).resolve()
         self.staging = self.root / '.staging'
         self.staging.mkdir(parents=True, exist_ok=True)
+        # Required human-facing report roots. Existing content is never replaced.
+        (self.root / 'Reports').mkdir(parents=True, exist_ok=True)
+        (self.root / 'Reports' / 'Internal').mkdir(parents=True, exist_ok=True)
 
     @staticmethod
     def parse_record(text: str) -> tuple[dict, str]:

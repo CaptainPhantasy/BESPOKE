@@ -43,6 +43,13 @@ class CRMTests(unittest.TestCase):
         tid=r.data['id']; self.assertTrue(self.c.execute_crm_action('complete_task',{'id':tid}).ok)
         rel,meta,body=self.c.store.find_by_id(tid); meta['completed_at']='2026-01-02T12:00:00-05:00'; (self.tmp/rel).write_text(self.c.store.dump_record(meta,body))
         Heartbeat(self.tmp).daily_cleanup(); self.assertTrue((self.tmp/'Tasks/Archive'/f'{tid}.md').exists())
+    def test_report_roots_initialized_without_overwrite(self):
+        reports=self.tmp/'Reports'; internal=reports/'Internal'; marker=reports/'keep-me.md'; marker.write_text('keep')
+        Conductor(self.tmp); self.assertTrue(reports.is_dir()); self.assertTrue(internal.is_dir()); self.assertEqual(marker.read_text(),'keep')
+    def test_pipeline_report_is_internal(self):
+        n=NightlyOrchestrator(self.tmp); proposal=n.run_nightly(); self.assertTrue(proposal['ok'])
+        self.assertTrue(self.c.execute_crm_action('activate_feature',{'feature_id':proposal['feature_id']}).ok)
+        r=self.c.execute_crm_action('pipeline_report',{}); self.assertTrue(r.ok,r); self.assertTrue(r.data['report'].startswith('Reports/Internal/'))
     def test_nightly_three_roles(self):
         r=NightlyOrchestrator(self.tmp).run_nightly(); self.assertTrue(r['ok']); self.assertTrue((self.tmp/'.system/orchestrator/proposals'/r['feature_id']/'manifest.json').exists())
 if __name__=='__main__': unittest.main()
